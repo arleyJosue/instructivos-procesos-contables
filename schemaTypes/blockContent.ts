@@ -30,14 +30,20 @@ export default defineType({
         {title: 'H4', value: 'h4'},
         {title: 'Quote', value: 'blockquote'},
       ],
-      lists: [{title: 'Bullet', value: 'bullet'}],
+      lists: [
+        {title: 'Bullet', value: 'bullet'},
+        {title: 'Lista Numerada', value: 'number'}
+      ],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
         decorators: [
-          {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'},
+          {title: 'Negrita', value: 'strong'},
+          {title: 'Itálica', value: 'em'},
+          {title: 'Subrayado', value: 'underline'},
+          {title: 'Tachado', value: 'strike-through'},
+          {title: 'Código', value: 'code'},
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -52,6 +58,27 @@ export default defineType({
                 type: 'url',
               },
             ],
+          },
+          {
+            title: 'Color de Texto',
+            name: 'textColor',
+            type: 'object',
+            fields: [
+              {
+                title: 'Color',
+                name: 'color',
+                type: 'string', // Puedes usar una lista de colores o un color picker
+                options: {
+                  list: [
+                    { title: 'Rojo', value: '#FF0000' },
+                    { title: 'Verde', value: '#008000' },
+                    { title: 'Azul', value: '#0000FF' },
+                    { title: 'Gris', value: '#666666' },
+                    { title: 'Dorado', value: '#D4AF37' },
+                  ]
+                }
+              }
+            ]
           },
         ],
       },
